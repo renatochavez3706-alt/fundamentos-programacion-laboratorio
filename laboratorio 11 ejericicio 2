@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+void leerFecha(int &dia, int &mes, int &anio);
+float LITERAL(int dia, int mes, int anio);
+void mostrarFecha(int dia, int mes, int anio, string nombremes, int aniocompleto);
+int main(){
+int dia, mes, anio;
+leerFecha(dia, mes, anio);
+LITERAL(dia, mes, anio);
+return 0;
+}
+void leerFecha(int &dia, int &mes, int &anio){
+cout<<"ingrese el dia: "<<endl;
+cin>>dia;
+cout<<"ingrese el mes: "<<endl;
+cin>>mes;
+cout<<"ingrese el anio: "<<endl;
+cin>>anio;
+}
+float LITERAL(int dia, int mes, int anio){
+string nombremes;
+int aniocompleto;
+switch(mes){
+case 1: nombremes = "Enero"; break;
+case 2: nombremes = "febrero"; break;
+case 3: nombremes = "marzo"; break;
+case 4: nombremes = "abril"; break;
+case 5: nombremes = "mayo"; break;
+case 6: nombremes = "junio"; break;
+case 7: nombremes = "julio"; break;
+case 8: nombremes = "agosto"; break;
+case 9: nombremes = "septiembre"; break;
+case 10: nombremes = "octubre"; break;
+case 11: nombremes = "noviembre"; break;
+case 12: nombremes = "diciembre"; break;
+default: nombremes = "mes invalido";
+}
+if(anio>=0 && anio <=50){
+    aniocompleto=2000+anio;
+}else{
+aniocompleto=anio;
+}
+mostrarFecha(dia, mes, anio, nombremes, aniocompleto);
+}
+void mostrarFecha(int dia,int mes, int anio, string nombremes, int aniocompleto){
+cout<<"la fecha que ingreso es: "<< dia << "/"<<mes<<"/"<<anio<<endl;
+cout<<"la fecha literal es: "<<dia<<" de "<<nombremes<<" de "<<aniocompleto<<endl;
+}
