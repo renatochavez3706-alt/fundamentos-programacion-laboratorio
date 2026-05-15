@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+void mostrarMenu();
+float obtenerPrecio(int plan);
+float calcularSubtotal(float precio, int meses);
+float calcularDescuento(float subtotal, int meses);
+void mostrarResultado(string nombre, float subtotal, float total);
+int main()
+{
+    string nombre;
+    int plan, meses;
+    float precio;
+    float subtotal;
+    float total;
+    mostrarMenu();
+    cout << "Ingrese el nombre del cliente: ";
+    cin >> nombre;
+    cout << "Seleccione el tipo de plan: ";
+    cin >> plan;
+    cout << "Ingrese la cantidad de meses: ";
+    cin >> meses;
+    precio = obtenerPrecio(plan);
+    subtotal = calcularSubtotal(precio, meses);
+    total = calcularDescuento(subtotal, meses);
+    mostrarResultado(nombre, subtotal, total);
+    return 0;
+}
+void mostrarMenu()
+{
+    cout << "PLANES DEL GIMNASIO " << endl;
+
+    cout << "1. Basico - 100 Bs" << endl;
+    cout << "2. Intermedio - 180 Bs" << endl;
+    cout << "3. Premium - 250 Bs" << endl;
+}
+float obtenerPrecio(int plan)
+{
+    if(plan == 1)
+    {
+        return 100;
+    }
+    else if(plan == 2)
+    {
+        return 180;
+    }
+    else
+    {
+        return 250;
+    }
+}
+float calcularSubtotal(float precio, int meses)
+{
+    float subtotal;
+    subtotal = precio * meses;
+    return subtotal;
+}
+float calcularDescuento(float subtotal, int meses)
+{
+    float total;
+    total = subtotal;
+    if(meses > 3)
+    {
+        total = subtotal - (subtotal * 0.15);
+    }
+    return total;
+}
+void mostrarResultado(string nombre, float subtotal, float total)
+{
+    cout << "\n----- FACTURA FINAL -----" << endl;
+    cout << "Cliente: " << nombre << endl;
+    cout << "Subtotal: " << subtotal << " Bs" << endl;
+    cout << "Total final: " << total << " Bs" << endl;
+}
