@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+void  leernotas(float notas[], int n);
+float calcularPromedio(float notas[],int n);
+float mayornota(float notas[],int n);
+float menornota(float notas[],int n);
+void mostrarResultados(float notas[],int n);
+int main(){
+float notas[100];
+float promedio, mayor, menor;
+int n;
+cout <<"ingrese la cantidad de estudiantes: "<<endl;
+cin>>n;
+leernotas(notas, n);
+promedio=calcularPromedio(notas, n);
+mayor=mayornota(notas, n);
+menor=menornota(notas, n);
+mostrarResultados(notas,n);
+cout<<"el promedio es: "<<promedio<<endl;
+cout<<"la mayor nota es: "<<mayor<<endl;
+cout<<"la menor nota es: "<<menor<<endl;
+return 0;
+}
+void  leernotas(float notas[], int n){
+for(int i=0; i<n;i++){
+    do{
+    cout<<"ingrese la nota "<<i+1<<":"<<endl;
+    cin>>notas[i];
+    }while(notas[i]<0 || notas[i]>100);
+
+}
+}
+float calcularPromedio(float notas[],int n){
+float suma=0;
+for(int i=1;i<n;i++){
+    suma=suma+notas[i];
+}
+return suma/n;
+}
+float mayornota(float notas[],int n){
+float mayor=notas[0];
+for(int i=0;i<n;i++){
+    if(notas[i]>mayor){
+        mayor=notas[i];
+    }
+}
+return mayor;
+}
+float menornota(float notas[],int n){
+float menor=notas[0];
+for(int i=0;i<n;i++){
+    if(notas[i]<menor){
+        menor=notas[i];
+    }
+}
+return menor;
+}
+void mostrarResultados(float notas[],int n){
+cout<<"NOTAS RESGISTRADAS: "<<endl;
+for(int i=0;i<n;i++){
+    cout<<notas[i]<< " ";
+}
+cout<<endl;
+}
